@@ -7,6 +7,13 @@
       <link rel="stylesheet" href="_css/form.css" />
     </head>
     <script language="javascript" src="_javascript/funcoes.js"></script>
+    <script>
+      function calc_total() {
+        var qtd = parseInt(document.getElementById("cQtd").value);
+        tot = qtd * 1500;
+        document.getElementById("cTot").value = tot;
+      }
+    </script>
     <body>
       <div id="interface">
         <header id="cabecalho">
@@ -72,6 +79,7 @@
           method="post"
           id="fContato"
           action="mailto:contato@cursoemvideo.com"
+          oninput="calc_total();"
         >
           <!-- o metodo "get" é o mais velos e menos seguro, pois todos os dados que estierem no forulario ficaram logo apos a Urrl apois o envio"/"Post" è mais seguro  pois os dados não são enviados pela URL e sim por pacotes dentro da solicitação que foi feita ao site   -->
           <fieldset id="usuario">
@@ -196,7 +204,7 @@
               <textarea
                 name="tMsg"
                 id="cMsg"
-                cols="45"
+                cols="35"
                 rows="5"
                 placeholder="Deixe aqui a sua mensagem"
               ></textarea>
@@ -217,12 +225,28 @@
             </p>
             <p>
               <label for="cQtd"> Quantidade:</label>
-              <input type="number" name="tQtd" id="cQtd" />
+              <input
+                type="number"
+                name="tQtd"
+                id="cQtd"
+                min="0"
+                max="5"
+                value="0"
+              />
             </p>
-            <p><label for="cTot"> Preço Total: R$</label></p>
+            <p>
+              <label for="cTot"> Preço Total: R$</label>
+              <input
+                type="text"
+                name="tTot"
+                id="cTot"
+                aria-placeholder="Total a Pagar"
+                readonly
+              />
+            </p>
           </fieldset>
 
-          [BOTÃO ENVIAR]
+          <input type="image" name="tEnviar" src="_imagens/botao-enviar.png" />
         </form>
 
         <footer id="rodape">
