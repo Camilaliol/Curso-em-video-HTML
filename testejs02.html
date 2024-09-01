@@ -1,0 +1,30 @@
+<DOCTYPE html>
+  <html>
+    <head>
+      <title>Teste JavaScript</title>
+      <meta charset="UTF-8" />
+      <script>
+        function acendeLampada() {
+          // () parametros / {} código
+          document.getElementById("luz").src = "_imagens/lampada-acesa.jpg"; //   O comando getElementByID("colocar o id") faz abrir outra imagem ao mesmo tempo(acender o objeto)
+        }
+        function apagaLampada() {
+          document.getElementById("luz").src = "_imagens/lampada-apagada.jpg"; // apaga a lampada( devendo abrir dois comando um com a igem acessa e outro com a img apagada, para que a lampada possa acender e apagar quando foi desejado)
+        }
+        function quebraLampada() {
+          document.getElementById("luz").src = "_imagens/lampada-quebrada.jpg";
+        }
+      </script>
+    </head>
+    <body>
+      <h1>Acenda a lâmpada</h1>
+      <img
+        src="_imagens/lampada-apagada.jpg"
+        id="luz"
+        onmousemove="acendeLampada()"
+        onmouseout="apagaLampada()"
+        onclick="quebraLampada()"
+      /><!-- Para ativar o alerta de lampada acesa basta add o comando "onclick" para que assim que clicar o objeto seja ativado o alerta/ ja o comando "onmousenove" so ativa o alerta quando passa o mouse sobre o objeto / -->
+    </body>
+  </html>
+</DOCTYPE>
